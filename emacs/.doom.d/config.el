@@ -2,7 +2,6 @@
 
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
-(add-to-list 'initial-frame-alist '(fullscreen . maximized))
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
@@ -53,3 +52,13 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+(add-to-list 'initial-frame-alist '(fullscreen . maximized))
+
+;; TSX doesn't have the best support in emacs land
+;; doom defaults to using web mode in the :lang web module
+;; https://github.com/hlissner/doom-emacs/issues/2252
+;; more discussion on this issue below
+;; https://github.com/emacs-typescript/typescript.el/issues/4
+;; rjsx-mode seems to have the best support atm for syntax highlighting etc.
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . rjsx-mode))
