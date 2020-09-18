@@ -62,3 +62,8 @@
 ;; https://github.com/emacs-typescript/typescript.el/issues/4
 ;; rjsx-mode seems to have the best support atm for syntax highlighting etc.
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . rjsx-mode))
+
+;; set the indent level to 2 when in json-mode
+(add-hook 'json-mode-hook
+          (lambda ()
+          (setq js-indent-level 2)))
