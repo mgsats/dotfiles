@@ -16,12 +16,6 @@
 (straight-use-package 'evil)
 (evil-mode)
 
-(straight-use-package 'projectile)
-(projectile-mode +1)
-
-(straight-use-package 'which-key)
-(which-key-mode)
-
 (straight-use-package 'doom-themes)
 (load-theme 'doom-city-lights t)
 
