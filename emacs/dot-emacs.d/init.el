@@ -32,4 +32,6 @@
 
 (tool-bar-mode -1)
 
+(straight-use-package 'which-key)
+(which-key-mode)
 
