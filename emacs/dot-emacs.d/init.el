@@ -13,17 +13,29 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
-(straight-use-package 'evil)
-(evil-mode)
+(straight-use-package 'use-package)
+(setq straight-use-package-by-default t)
 
-(straight-use-package 'doom-themes)
-(load-theme 'doom-city-lights t)
+(use-package evil
+    :config
+    (evil-mode))
 
-(straight-use-package 'doom-modeline)
-(doom-modeline-mode 1)
+(use-package doom-themes
+    :config
+    (load-theme 'doom-city-lights t))
 
-(straight-use-package 'ns-auto-titlebar)
-(when (eq system-type 'darwin) (ns-auto-titlebar-mode))
+(use-package dashboard
+    :config
+    (dashboard-setup-startup-hook)
+    (setq dashboard-startup-banner 'logo))
+
+(use-package doom-modeline
+    :config
+    (doom-modeline-mode 1))
+
+(use-package ns-auto-titlebar
+    :config
+    (when (eq system-type 'darwin) (ns-auto-titlebar-mode)))
 
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
 
@@ -32,6 +44,11 @@
 
 (tool-bar-mode -1)
 
-(straight-use-package 'which-key)
-(which-key-mode)
+(use-package which-key
+    :config
+    (which-key-mode))
 
+(use-package projectile
+    :config
+    (projectile-mode +1)
+    (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
